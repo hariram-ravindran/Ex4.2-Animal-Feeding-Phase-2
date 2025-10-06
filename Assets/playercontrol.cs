@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 10f;
-    public GameObject projectilePrefab; // for reusing the object
+    public float speed=10.0f;
+    public float xRange=25.0f;
+    public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -27,11 +27,7 @@ public class PlayerController : MonoBehaviour
         }
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        }
-    }
-
+    }
 }
